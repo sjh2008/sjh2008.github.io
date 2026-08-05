@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"
+        />
+        <title>JQ1338 的个人主页</title>
+        <meta name="description" content="JQ1338 的个人主页" />
+        <meta name="keywords" content="JQ1338,个人主页" />
+        <link rel="stylesheet" type="text/css" href="./css/FiraCode.css" />
+        <link rel="stylesheet" type="text/css" href="./css/nutssss.css" />
+        <link rel="icon" href="./favicon.ico" />
+    </head>
+
+    <body>
+        <div id="box">
+            <!-- 个人资料卡片 -->
+            <div class="meBox">
+                <!-- 头像 -->
+                <div class="headPhoto"></div>
+                <!-- 介绍 -->
+                <div class="meBox-title">
+                    <p>I'm JQ1338</p>
+                    <div class="fg"></div>
+                </div>
+                <div class="meBox-text">
+                    <p>一个爱咕咕の人</p>
+                    <p>喜欢玩明日方舟</p>
+                </div>
+                <!-- 两个按钮 -->
+                <div class="meBox-Button">
+                    <a href="#">关于</a>
+                    <a href="mailto:jq226571@gmail.com">联系</a>
+                </div>
+            </div>
+
+            <!-- 伪终端介绍 -->
+            <div id="cmdBox">
+                <!-- 第一个终端 -->
+                <div class="cmd">
+                    <!-- 三个按钮 -->
+                    <div class="click">
+                        <div class="red"></div>
+                        <div class="yellow"></div>
+                        <div class="green"></div>
+                    </div>
+                    <!-- 顶部标题 -->
+                    <div class="title">
+                        <span>JQ1338 - bash</span>
+                    </div>
+                    <!-- 终端内文字 -->
+                    <div class="cmdText">
+                        <span style="color: rgb(0, 190, 0)">root@JQ1338</span>
+                        <span style="color: blue">~</span>
+                        <span style="color: rgb(39, 39, 39)">curl -s https://uapis.cn/api/v1/saying</span>
+                        <div id="saying">
+                            <p>正在加载名言…</p>
+                        </div>
+                        <span style="color: rgb(0, 190, 0)">root@JQ1338</span>
+                        <span style="color: blue">~</span>
+                        <span style="color: rgb(39, 39, 39)">sudo rm -rf /过去的自己/*</span>
+                    </div>
+                </div>
+                <!-- 第二个终端 -->
+                <div class="cmd cmd2">
+                    <!-- 三个按钮 -->
+                    <div class="click">
+                        <div class="red"></div>
+                        <div class="yellow"></div>
+                        <div class="green"></div>
+                    </div>
+                    <!-- 顶部标题 -->
+                    <div class="title">
+                        <span>JQ1338 - bash</span>
+                    </div>
+                    <!-- 终端内文字 -->
+                    <div class="cmdText">
+                        <span style="color: rgb(0, 190, 0)">root@JQ1338</span>
+                        <span style="color: blue">~</span>
+                        <span style="color: rgb(39, 39, 39)">./links.sh</span>
+                        <p>我的其他站点：</p>
+                        <ul class="ul">
+                            <li><a href="https://github.com/JQ1338">GitHub</a></li>
+                            <li><a href="https://space.bilibili.com/1684801776">B站</a></li>
+                            <li><a href="https://wpa.qq.com/msgrd?v=3&uin=3363667994&site=qq&menu=yes">QQ</a></li>
+                        </ul>
+                        <span style="color: rgb(0, 190, 0)">root@JQ1338</span>
+                        <span style="color: blue">~</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div id="footer">
+            <p>© 2026 JQ1338</p>
+            <p>THEME MADE BY <a href="https://n0ts.top/">Nutssss</a></p>
+        </div>
+
+        <script>
+            fetch('https://uapis.cn/api/v1/saying')
+                .then(function (res) {
+                    return res.json();
+                })
+                .then(function (data) {
+                    var el = document.getElementById('saying');
+                    if (el && data && data.text) {
+                        el.innerText = data.text;
+                    }
+                })
+                .catch(function () {
+                    var el = document.getElementById('saying');
+                    if (el) {
+                        el.innerText = '名言加载失败：请确认页面是通过 HTTP(S) 访问的（直接双击本地文件会被浏览器跨域拦截）';
+                    }
+                });
+        </script>
+    </body>
+</html>
